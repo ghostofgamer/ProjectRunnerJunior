@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3263042884081148510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3263042884081148496}
+  - component: {fileID: 3263042884081148497}
+  m_Layer: 0
+  m_Name: TileGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3263042884081148496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263042884081148510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3263042884081148497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263042884081148510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b403a2aeed8d84eb16f41cccbdbc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - _prefab: {fileID: 1499760262581580927, guid: e2985b5acb50e6c4f836630efb5b6141, type: 3}
+    _amount: 1
+  - _prefab: {fileID: 131065534114130429, guid: ac56b892a48a08d488e0b9cc7a243e97, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 6544330730694458221, guid: d53cfe0172ff09a4ea8937ed8b3577f7, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 5422494391374656137, guid: dc51dc96d26011a45bda0e277ab79761, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 24357274455126527, guid: c0bf0512caeebba43bd61f68bb3bda74, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 1643975085622741107, guid: 279410e9d1f0a134fa618d1a250bdd41, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 1540838690853594071, guid: fd03c5b592a5e4549889917a65198b62, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 5672487712244920960, guid: 2fcc262211193e24c806c6da51fcacfc, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 5792450380446687951, guid: 6aa2556364a1a6447887cfc5f4b747ec, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 3653262272300489416, guid: e2c01ef10f7104342af4606b2072e6c8, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 3498767514849620934, guid: 8e9016aad6027d94292ce65cb84b27b5, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 9178475575185956507, guid: 6d69475aea5441848886aa0453cc9ddc, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 4522784520464694643, guid: 32fa214e39095d84f8a9ceec96e5be02, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 3134460408229422630, guid: 5d47965947a85e04ca02445f859db313, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 2288464468046825846, guid: e937eb94f2bac304b8aff53b3b899dff, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 3638031268596569908, guid: fb5d0b259d0f9254685ba76fa969bf3e, type: 3}
+    _amount: 3
+  - _prefab: {fileID: 4189769846932606427, guid: 97c01db363f9a1448994e7a4d83a04ff, type: 3}
+    _amount: 3
+  _pooledItem: []
+  _playerTransform: {fileID: 0}
+  _zSpawn: 0
+  _tileLength: 50
+  _timeHardTemplate: 51
