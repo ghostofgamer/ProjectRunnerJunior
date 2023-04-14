@@ -58,6 +58,9 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
+        int cool = PlayerPrefs.GetInt("coin");
+        coins = cool;
+
         AddCoins();
         int totalCoins = PlayerPrefs.GetInt("coin");
         coins = PlayerPrefs.GetInt("coins") + totalCoins;

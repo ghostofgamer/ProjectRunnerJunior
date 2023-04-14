@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     }
     public void Die()
     {
+        PlayerPrefs.SetInt("coin", _coin);
         PlayerPrefs.SetInt("score", _score);
         Died?.Invoke();
     }
