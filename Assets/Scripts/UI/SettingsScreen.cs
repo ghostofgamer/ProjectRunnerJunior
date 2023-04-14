@@ -41,7 +41,6 @@ public class SettingsScreen : MonoBehaviour
         _musicVolume = _slider.value;
         _audioSource.volume = _musicVolume;
         PlayerPrefs.SetFloat("volume", _slider.value);
-        Debug.Log(_slider.value);
     }
 
     private void OnOffMusicButtonClick()
