@@ -40,7 +40,7 @@ public class SettingsScreen : MonoBehaviour
         }
         else
         {
-        _slider.value = PlayerPrefs.GetFloat("volume");
+            _slider.value = PlayerPrefs.GetFloat("volume");
         }
 
         _settingsGroup = GetComponent<CanvasGroup>();
@@ -56,9 +56,19 @@ public class SettingsScreen : MonoBehaviour
         PlayerPrefs.SetFloat("volume", _slider.value);
     }
 
-    private void OnOffMusicButtonClick()
+    public void OnOffMusicButtonClick()
     {
         _slider.value = 0f;
+    }
+
+    public void ReturnSoundGame()
+    {
+        _audioSource.mute = false;
+    }
+
+    public void Off()
+    {
+        _audioSource.mute = true;
     }
 
     private void OnAcceptButtonClick()
