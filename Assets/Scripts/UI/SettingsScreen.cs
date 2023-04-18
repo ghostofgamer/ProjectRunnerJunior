@@ -13,6 +13,7 @@ public class SettingsScreen : MonoBehaviour
     [SerializeField] private GameScreenMenu _gameScreenMenu;
 
     private float _musicVolume = 1f;
+    private int _firstPlayInt;
     private CanvasGroup _settingsGroup;
 
     private void OnEnable()
@@ -29,7 +30,19 @@ public class SettingsScreen : MonoBehaviour
 
     private void Start()
     {
+        _firstPlayInt = PlayerPrefs.GetInt("firstPlay");
+
+        if (_firstPlayInt == 0)
+        {
+            _musicVolume = 0.3f;
+            _slider.value = _musicVolume;
+            PlayerPrefs.SetInt("firstPlay", 1);
+        }
+        else
+        {
         _slider.value = PlayerPrefs.GetFloat("volume");
+        }
+
         _settingsGroup = GetComponent<CanvasGroup>();
         _settingsGroup.alpha = 0;
         _settingsGroup.blocksRaycasts = false;
