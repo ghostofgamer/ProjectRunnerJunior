@@ -18,6 +18,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private Button _buyWinterButton;
     [SerializeField] private Button _buyBigManButton;
     [SerializeField] private Button _buyNinjaButton;
+    [SerializeField] private Button _buyCowboyButton;
+    [SerializeField] private Button _buyGirlButton;
     [SerializeField] private Button _winterBlock;
     [SerializeField] private Button _desertBlock;
     [SerializeField] private Button _bigManBlock;
@@ -28,6 +30,8 @@ public class Shop : MonoBehaviour
     private int _winterAcsess;
     private int _bigManAcsess;
     private int _ninjaAcsess;
+    private int _cowboyAcsess;
+    private int _girlAcsess;
     private CanvasGroup _shopCanvas;
 
     private void Awake()
@@ -36,6 +40,8 @@ public class Shop : MonoBehaviour
         _winterAcsess = PlayerPrefs.GetInt("winterLevel");
         _bigManAcsess = PlayerPrefs.GetInt("bigMan");
         _ninjaAcsess = PlayerPrefs.GetInt("ninja");
+        _cowboyAcsess = PlayerPrefs.GetInt("cowboy");
+        _girlAcsess = PlayerPrefs.GetInt("girl");
     }
 
     private void OnEnable()
@@ -45,6 +51,8 @@ public class Shop : MonoBehaviour
         _buyWinterButton.onClick.AddListener(BuyWinterLevel);
         _buyBigManButton.onClick.AddListener(OnBuyBigMan);
         _buyNinjaButton.onClick.AddListener(OnBuyNinja);
+        _buyCowboyButton.onClick.AddListener(OnBuyCowboy);
+        _buyGirlButton.onClick.AddListener(OnBuyGirl);
     }
 
     private void OnDisable()
@@ -54,6 +62,8 @@ public class Shop : MonoBehaviour
         _buyWinterButton.onClick.RemoveListener(BuyWinterLevel);
         _buyNinjaButton.onClick.RemoveListener(OnBuyNinja);
         _buyBigManButton.onClick.RemoveListener(OnBuyBigMan);
+        _buyCowboyButton.onClick.RemoveListener(OnBuyCowboy);
+        _buyGirlButton.onClick.RemoveListener(OnBuyGirl);
     }
 
     private void Start()
@@ -94,6 +104,16 @@ public class Shop : MonoBehaviour
         {
             myPurchaseBtns[4].enabled = false;
             BuyBlock(_buyNinjaButton);
+        }
+        if (_cowboyAcsess != 0)
+        {
+            myPurchaseBtns[6].enabled = false;
+            BuyBlock(_buyCowboyButton);
+        }
+        if (_girlAcsess != 0)
+        {
+            myPurchaseBtns[7].enabled = false;
+            BuyBlock(_buyGirlButton);
         }
         LoadPanels();
         CheckPurchaseable();
@@ -191,6 +211,30 @@ public class Shop : MonoBehaviour
             coinUI.text = coins.ToString();
             BuyBlock(_buyNinjaButton);
             PlayerPrefs.SetInt("ninja", 1);
+        }
+    }
+
+    private void OnBuyCowboy()
+    {
+        if (coins >= shopItemSO[6].BaseCost)
+        {
+            coins = coins - shopItemSO[6].BaseCost;
+            PlayerPrefs.SetInt("coins", coins);
+            coinUI.text = coins.ToString();
+            BuyBlock(_buyCowboyButton);
+            PlayerPrefs.SetInt("cowboy", 1);
+        }
+    }
+
+    private void OnBuyGirl()
+    {
+        if (coins >= shopItemSO[7].BaseCost)
+        {
+            coins = coins - shopItemSO[7].BaseCost;
+            PlayerPrefs.SetInt("coins", coins);
+            coinUI.text = coins.ToString();
+            BuyBlock(_buyGirlButton);
+            PlayerPrefs.SetInt("girl", 1);
         }
     }
 

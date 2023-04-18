@@ -25,6 +25,8 @@ public class GameScreenMenu : MonoBehaviour
     [SerializeField] private GameObject _blockLvlWinter;
     [SerializeField] private GameObject _blockSkinBigMan;
     [SerializeField] private GameObject _blockSkinNinja;
+    [SerializeField] private GameObject _blockSkinCowboy;
+    [SerializeField] private GameObject _blockSkinGirl;
 
     private CanvasGroup _gameMenuGroup;
     private int _desertLevel;
@@ -32,6 +34,8 @@ public class GameScreenMenu : MonoBehaviour
     private int _skinBigMan;
     private int _skinNinja;
     private int _bestScore;
+    private int _skinCowboy;
+    private int _skinGirl;
 
     public Button Level2 => _level2Button;
     public Button Level3 => _level3Button;
@@ -84,6 +88,8 @@ public class GameScreenMenu : MonoBehaviour
         _winterLevel = PlayerPrefs.GetInt("winterLevel");
         _skinBigMan = PlayerPrefs.GetInt("bigMan");
         _skinNinja = PlayerPrefs.GetInt("ninja");
+        _skinCowboy = PlayerPrefs.GetInt("cowboy"); 
+        _skinGirl = PlayerPrefs.GetInt("girl"); 
 
         if (_desertLevel != 0)
         {
@@ -105,7 +111,17 @@ public class GameScreenMenu : MonoBehaviour
         if (_skinNinja != 0)
         {
             _blockSkinNinja.SetActive(false);
+        }
 
+        if (_skinCowboy != 0)
+        {
+            _blockSkinCowboy.SetActive(false);
+
+        }
+
+        if (_skinGirl != 0)
+        {
+            _blockSkinGirl.SetActive(false);
         }
     }
 
