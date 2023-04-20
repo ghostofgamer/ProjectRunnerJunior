@@ -8,6 +8,7 @@ public class InputPhoneTest : MonoBehaviour
     [SerializeField] private GameObject _inputPhone;
     [SerializeField] private Button _leftButton;
     [SerializeField] private Button _rightButton;
+    [SerializeField] private Button _jumpButton;
     [SerializeField] private Mover _mover;
     private Player _player;
 
@@ -27,12 +28,14 @@ public class InputPhoneTest : MonoBehaviour
     {
         _leftButton.onClick.AddListener(_mover.LeftInputPhone);
         _rightButton.onClick.AddListener(_mover.RightInputPhone);
+        _jumpButton.onClick.AddListener(_mover.OnJump);
     }
 
     private void OnDisable()
     {
         _leftButton.onClick.RemoveListener(_mover.LeftInputPhone);
         _rightButton.onClick.RemoveListener(_mover.RightInputPhone);
+        _jumpButton.onClick.RemoveListener(_mover.OnJump);
     }
 
     private void Start()

@@ -22,19 +22,19 @@ public class CheckScore : MonoBehaviour
         if (_elapsedTime >= 1)
         {
             _score.enabled = true;
-            //_check.enabled = false;
         }
+
         if (_elapsedTime >= 2)
         {
 
             _score.enabled = false;
         }
+
         if (_elapsedTime >= 3)
         {
 
             _score.enabled = true;
             _check.enabled = false;
         }
-
     }
 }

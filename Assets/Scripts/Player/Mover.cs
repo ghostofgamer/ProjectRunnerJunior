@@ -105,7 +105,6 @@ public class Mover : MonoBehaviour
         _nexLine += (int)direction.normalized.x;
         _nexLine = Mathf.Clamp(_nexLine, MinLines, _countLines);
         _inputDirection = (int)direction.x;
-        Debug.Log(direction);
     }
 
     public void LeftInputPhone()
@@ -118,15 +117,8 @@ public class Mover : MonoBehaviour
         SetDirection(new Vector2(1, 0));
     }
 
-    private void OnJump()
+    public void OnJump()
     {
-        //if (_groundChecker._isGrounded)
-        //{
-        //    _animations.SetJumpTrigger();
-        //    _velocity = _jumpForce;
-        //    _effect.SetActive(false);
-        //}
-
         if (_groundChecker._isGrounded)
         {
             _animations.SetJumpingsTrigger();
