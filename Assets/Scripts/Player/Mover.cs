@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(InputHandler))]
 public class Mover : MonoBehaviour
@@ -20,7 +21,8 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _timeToUpSpeed;
     [SerializeField] private float _changeSpeed = 0.05f;
     [SerializeField] private GameObject _effect;
-    //[SerializeField] private PlayerEffects _effect;
+    [SerializeField] private Button _leftButton;
+    [SerializeField] private Button _rightButton;
 
     private int _startLine;
     private int _nexLine;
@@ -46,7 +48,7 @@ public class Mover : MonoBehaviour
         {
             _speedStrafe += Time.deltaTime * _changeSpeed;
         }
-            _speed += Time.deltaTime * _changeSpeed;
+        _speed += Time.deltaTime * _changeSpeed;
 
         Move();
 
@@ -103,6 +105,17 @@ public class Mover : MonoBehaviour
         _nexLine += (int)direction.normalized.x;
         _nexLine = Mathf.Clamp(_nexLine, MinLines, _countLines);
         _inputDirection = (int)direction.x;
+        Debug.Log(direction);
+    }
+
+    public void LeftInputPhone()
+    {
+        SetDirection(new Vector2(-1, 0));
+    }
+
+    public void RightInputPhone()
+    {
+        SetDirection(new Vector2(1, 0));
     }
 
     private void OnJump()
@@ -129,5 +142,4 @@ public class Mover : MonoBehaviour
             _animations.SetSlide();
         }
     }
-
 }

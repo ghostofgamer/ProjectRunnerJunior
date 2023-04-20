@@ -69,8 +69,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""dac09132-4de8-41e6-ac9b-1c5d6ecbe6e8"",
-                    ""path"": ""<Touchscreen>/Press"",
+                    ""id"": ""c8c46713-e57b-4f84-96aa-4f5036679838"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -124,8 +124,19 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""0f45f731-3f0a-4ddd-a32c-1f585f2a8d8e"",
-                    ""path"": ""<Touchscreen>/delta/left"",
+                    ""id"": ""f3734fed-f477-4569-bd70-2d46be71a152"",
+                    ""path"": ""<Touchscreen>/primaryTouch/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""89e45cdf-1d32-44fd-a755-b2cac79dbfe9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -146,8 +157,19 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
+                    ""id"": ""994670fc-8470-413c-b6c9-3d48f481367a"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
                     ""id"": ""a0cd0459-67d6-428d-8a57-e4d50f573309"",
-                    ""path"": ""<Touchscreen>/delta/right"",
+                    ""path"": ""<Touchscreen>/position/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
