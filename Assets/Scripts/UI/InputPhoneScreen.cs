@@ -29,20 +29,17 @@ public class InputPhoneScreen : MonoBehaviour
         _canvasGroup.blocksRaycasts = flag;
     }
 
-    public void AlphaScreen()
-    {
-
-    }
-
     public void OnScreenInput()
     {
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.alpha = 1f;
+        InteractableButton(true);
     }
 
     public void OffScreenInput()
     {
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.alpha = 0f;
+        InteractableButton(false);
     }
 }

@@ -11,6 +11,9 @@ public class SettingsScreen : MonoBehaviour
     [SerializeField] private Button _offMusicButton;
     [SerializeField] private Button _acceptButton;
     [SerializeField] private GameScreenMenu _gameScreenMenu;
+    [SerializeField] private Button _russianLanguage;
+    [SerializeField] private Button _englishLanguage;
+    [SerializeField] private Button _turceLanguage;
 
     private float _musicVolume = 1f;
     private int _firstPlayInt;
@@ -89,5 +92,8 @@ public class SettingsScreen : MonoBehaviour
     {
         _offMusicButton.interactable = flag;
         _acceptButton.interactable = flag;
+        _russianLanguage.interactable = flag;
+        _englishLanguage.interactable = flag;
+        _turceLanguage.interactable = flag;
     }
 }

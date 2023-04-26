@@ -33,6 +33,7 @@ public class Mover : MonoBehaviour
     private float _gravity = -9.81f;
     private float _gravityScale = 1;
     private float _maxSpeedStrafe = 11;
+    private float _maxSpeed = 25;
 
     private void Awake()
     {
@@ -44,18 +45,9 @@ public class Mover : MonoBehaviour
 
     private void Update()
     {
-        if (_speedStrafe < _maxSpeedStrafe)
-        {
-            _speedStrafe += Time.deltaTime * _changeSpeed;
-        }
-        _speed += Time.deltaTime * _changeSpeed;
-
         Move();
-
         _animations.Move(_inputDirection);
-
         _velocity += _gravity * _gravityScale * Time.deltaTime;
-
         _animations.Jumping(_groundChecker._isGrounded);
 
         if (_groundChecker._isGrounded && _velocity < 0)
@@ -65,6 +57,16 @@ public class Mover : MonoBehaviour
             _velocity = 0;
             var targetPosition = new Vector3(transform.position.x, _groundChecker.SnapPoint.y + _yOffset, transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, _snapSpeed * Time.deltaTime);
+        }
+
+        if (_speedStrafe < _maxSpeedStrafe)
+        {
+            _speedStrafe += Time.deltaTime * _changeSpeed;
+        }
+
+        if (_speed < _maxSpeed)
+        {
+            _speed += Time.deltaTime * _changeSpeed;
         }
 
         transform.Translate(new Vector3(0, _velocity, _speed) * Time.deltaTime);

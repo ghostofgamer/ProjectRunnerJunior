@@ -11,6 +11,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _menuButton;
     [SerializeField] private Score _score;
+    [SerializeField] private InputPhoneScreen _inputPhoneScreen;
 
     private CanvasGroup _pauseGroup;
 
@@ -36,13 +37,14 @@ public class PauseScreen : MonoBehaviour
         InteractableButton(false);
     }
 
-    private void OnPauseButtonClick()
+    public void OnPauseButtonClick()
     {
         Time.timeScale = 0;
         _score.ChangePlaying(false);
         _pauseGroup.alpha = 1;
         _pauseGroup.blocksRaycasts = true;
         InteractableButton(true);
+        _inputPhoneScreen.OffScreenInput();
     }
 
     private void OnPlayButtonClick()
@@ -51,6 +53,7 @@ public class PauseScreen : MonoBehaviour
         Time.timeScale = 1;
         _pauseGroup.blocksRaycasts = false;
         _score.ChangePlaying(true);
+        _inputPhoneScreen.OnScreenInput();
     }
 
     private void OnMenuButtonClick()

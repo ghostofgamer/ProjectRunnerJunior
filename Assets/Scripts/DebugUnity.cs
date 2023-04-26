@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class DebugUnity : MonoBehaviour
 {
-    bool isPaused = false;
     [SerializeField] private SettingsScreen _settings;
+    [SerializeField] private PauseScreen _pauseScreen;
+
+    bool isPaused = false;
 
     private void OnGUI()
     {
         if (isPaused)
         {
             _settings.Off();
+            _pauseScreen.OnPauseButtonClick();
         }
         else
         {

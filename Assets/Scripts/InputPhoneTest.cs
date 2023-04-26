@@ -41,15 +41,6 @@ public class InputPhoneTest : MonoBehaviour
     private void Start()
     {
         _mover = GameObject.FindGameObjectWithTag("Player").GetComponent<Mover>();
-
-        //if (Application.isMobilePlatform)
-        //{
-        //    _inputPhone.SetActive(true);
-        //}
-        //else
-        //{
-        //    _inputPhone.SetActive(false);
-        //}
     }
 }
 

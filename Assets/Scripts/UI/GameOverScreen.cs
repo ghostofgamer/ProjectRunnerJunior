@@ -12,6 +12,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private Score _score;
     [SerializeField] private TMP_Text _scoreUI;
     [SerializeField] private TMP_Text _coinUI;
+    [SerializeField] private InputPhoneScreen _inputPhoneButton;
 
     private Player _player;
     private CanvasGroup _gameOverGroup;
@@ -46,7 +47,8 @@ public class GameOverScreen : MonoBehaviour
         Time.timeScale = 0;
         InteractableButton(true);
         GetStatistics();
-        _score.ChangePlaying(false); 
+        _score.ChangePlaying(false);
+        _inputPhoneButton.OffScreenInput();
     }
 
     private void InteractableButton(bool flag)
