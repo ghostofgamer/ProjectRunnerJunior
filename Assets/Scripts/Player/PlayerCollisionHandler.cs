@@ -7,14 +7,9 @@ public class PlayerCollisionHandler : MonoBehaviour
 {
     private Player _player;
 
-    //private void Awake()
-    //{
-    //}
-
     private void Start()
     {
-        _player= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        //_player = GetComponent<Player>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +19,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             _player.Die();
         }
 
-        if(other.TryGetComponent(out Coin coin))
+        if (other.TryGetComponent(out Coin coin))
         {
             _player.AddedCoin();
             coin.CollectionCoin();

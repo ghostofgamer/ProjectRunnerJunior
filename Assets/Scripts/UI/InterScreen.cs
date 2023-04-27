@@ -31,5 +31,4 @@ public class InterScreen : MonoBehaviour
     {
         InterstitialAd.Show();
     }
-
 }

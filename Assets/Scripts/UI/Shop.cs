@@ -68,17 +68,27 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        int cool = PlayerPrefs.GetInt("coin");
-        coins = cool;
-
-        AddCoins();
+        //int cool = PlayerPrefs.GetInt("coin");
+        //coins = cool;
+        int money = PlayerPrefs.GetInt("money");
         int totalCoins = PlayerPrefs.GetInt("coin");
-        coins = PlayerPrefs.GetInt("coins") + totalCoins;
-        PlayerPrefs.SetInt("coins", coins);
+        coins = PlayerPrefs.GetInt("moneys") + totalCoins;
+        AddCoins();
+        PlayerPrefs.SetInt("moneys",coins);
+        PlayerPrefs.SetInt("money", 0);
+        PlayerPrefs.SetInt("coin", 0);
+        coinUI.text = coins.ToString();
+
+
+
+
+        //coins = PlayerPrefs.GetInt("coins") + totalCoins;
+        //totalCoins = 0;
+        //PlayerPrefs.SetInt("coins", coins);
         _shopCanvas = GetComponent<CanvasGroup>();
         _shopCanvas.alpha = 0;
         _shopCanvas.blocksRaycasts = false;
-        coinUI.text = coins.ToString();
+        //coinUI.text = coins.ToString();
 
         for (int i = 0; i < shopItemSO.Length; i++)
         {
@@ -172,6 +182,7 @@ public class Shop : MonoBehaviour
         {
             coins = coins - shopItemSO[0].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
             BuyBlock(_buyWinterButton);
             PlayerPrefs.SetInt("winterLevel", 1);
@@ -184,6 +195,7 @@ public class Shop : MonoBehaviour
         {
             coins = coins - shopItemSO[1].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
             BuyBlock(_buyDesertButton);
             PlayerPrefs.SetInt("desertLevel", 1);
@@ -196,6 +208,7 @@ public class Shop : MonoBehaviour
         {
             coins = coins - shopItemSO[3].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
             BuyBlock(_buyBigManButton);
             PlayerPrefs.SetInt("bigMan", 1);
@@ -208,6 +221,7 @@ public class Shop : MonoBehaviour
         {
             coins = coins - shopItemSO[4].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
             BuyBlock(_buyNinjaButton);
             PlayerPrefs.SetInt("ninja", 1);
@@ -220,6 +234,7 @@ public class Shop : MonoBehaviour
         {
             coins = coins - shopItemSO[6].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
             BuyBlock(_buyCowboyButton);
             PlayerPrefs.SetInt("cowboy", 1);
@@ -232,6 +247,7 @@ public class Shop : MonoBehaviour
         {
             coins = coins - shopItemSO[7].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
+            PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
             BuyBlock(_buyGirlButton);
             PlayerPrefs.SetInt("girl", 1);

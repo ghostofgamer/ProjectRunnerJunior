@@ -27,6 +27,7 @@ public class GameScreenMenu : MonoBehaviour
     [SerializeField] private GameObject _blockSkinNinja;
     [SerializeField] private GameObject _blockSkinCowboy;
     [SerializeField] private GameObject _blockSkinGirl;
+    [SerializeField] private TMP_Text _scoreUI;
 
     private CanvasGroup _gameMenuGroup;
     private int _desertLevel;
@@ -36,15 +37,11 @@ public class GameScreenMenu : MonoBehaviour
     private int _bestScore;
     private int _skinCowboy;
     private int _skinGirl;
+    private int _scores;
 
     public Button Level2 => _level2Button;
     public Button Level3 => _level3Button;
     public Button[] LevelButtons => _levelButtons;
-
-
-
-    private int _scores;
-    [SerializeField] private TMP_Text _scoreUI;
 
     private void OnEnable()
     {
