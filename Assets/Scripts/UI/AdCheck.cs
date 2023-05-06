@@ -8,6 +8,23 @@ public class AdCheck : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        AdButton.AdOpened += OnAdOpen;
+        AdButton.AdClosed += OnAdClose;
+    }
+
+    private void OnDisable()
+    {
+        AdButton.AdOpened -= OnAdOpen;
+        AdButton.AdClosed -= OnAdClose;
+    }
+
+    private void OnAdOpen()
+    {
+        _settings.Mute();
+    }
+
+    private void OnAdClose()
+    {
+        _settings.Unmute();
     }
 }

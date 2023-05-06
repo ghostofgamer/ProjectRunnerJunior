@@ -15,27 +15,26 @@ public class SettingsScreen : MonoBehaviour
     [SerializeField] private Button _englishLanguage;
     [SerializeField] private Button _turceLanguage;
 
-    private float _musicVolume = 1f;
     private int _firstPlayInt;
     private CanvasGroup _settingsGroup;
     private int _muteCheck;
 
     private void OnEnable()
     {
-        _offMusicButton.onClick.AddListener(OnOffMusicButtonClick);
+        _offMusicButton.onClick.AddListener(OffVolumeSound);
         _acceptButton.onClick.AddListener(OnAcceptButtonClick);
     }
 
     private void OnDisable()
     {
-        _offMusicButton.onClick.RemoveListener(OnOffMusicButtonClick);
+        _offMusicButton.onClick.RemoveListener(OffVolumeSound);
         _acceptButton.onClick.RemoveListener(OnAcceptButtonClick);
     }
 
     private void Start()
     {
         _firstPlayInt = PlayerPrefs.GetInt("firstPlay");
-        _muteCheck = PlayerPrefs.GetInt("mute");
+        //_muteCheck = PlayerPrefs.GetInt("mute");
 
         //if (_muteCheck > 0)
         //{
@@ -44,13 +43,14 @@ public class SettingsScreen : MonoBehaviour
 
         if (_firstPlayInt == 0)
         {
-            _musicVolume = 0.3f;
-            _slider.value = _musicVolume;
+            _slider.value = 0.3f;
+            _audioSource.volume = _slider.value;
             PlayerPrefs.SetInt("firstPlay", 1);
         }
         else
         {
             _slider.value = PlayerPrefs.GetFloat("volume");
+            _audioSource.volume = _slider.value;
         }
 
         _settingsGroup = GetComponent<CanvasGroup>();
@@ -59,40 +59,43 @@ public class SettingsScreen : MonoBehaviour
         InteractableButtons(false);
     }
 
-    private void Update()
+    public void SetVolume(float volume)
     {
-        _musicVolume = _slider.value;
-        _audioSource.volume = _musicVolume;
-        PlayerPrefs.SetFloat("volume", _slider.value);
+        _slider.value = volume;
+        _audioSource.volume = _slider.value;
+        PlayerPrefs.SetFloat("volume", volume);
     }
 
-    public void OnOffMusicButtonClick()
+    public void OnVolumeSound()
     {
-        _slider.value = 0f;
+        _audioSource.volume = _slider.value;
     }
 
-    public void ReturnSoundGame()
+    public void OffVolumeSound()
+    {
+        _audioSource.volume = 0;
+    }
+
+
+    //public void Unmute()
+    //{
+    //    _audioSource.mute = false;
+    //    PlayerPrefs.SetInt("mute", 1);
+    //}
+    public void Unmute()
     {
         _audioSource.mute = false;
     }
 
-    public void Unmute(bool flag)
-    {
-        _audioSource.mute = false;
-        PlayerPrefs.SetInt("mute", 1);
-        Time.timeScale = 1;
-    }
-
-    public void Off()
+    public void Mute()
     {
         _audioSource.mute = true;
-        Time.timeScale = 0;
         PlayerPrefs.SetInt("mute", 0);
     }
 
-    public void OnMusicButtonClick()
+    public void Stop()
     {
-        _slider.value = PlayerPrefs.GetFloat("volume");
+        Time.timeScale = 0;
     }
 
     private void OnAcceptButtonClick()

@@ -47,4 +47,11 @@ public class Player : MonoBehaviour
         ScoreChanged?.Invoke(_score);
         CoinsScoreChanged?.Invoke(_coin);
     }
+
+    public void AddReward()
+    {
+        _coin += _coin;
+        CoinsScoreChanged?.Invoke(_coin);
+        PlayerPrefs.SetInt("coin", _coin);
+    }
 }

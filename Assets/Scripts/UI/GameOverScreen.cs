@@ -9,6 +9,7 @@ using TMPro;
 public class GameOverScreen : MonoBehaviour
 {
     [SerializeField] private Button _menuButton;
+    [SerializeField] private Button _rewardButton;
     [SerializeField] private Score _score;
     [SerializeField] private TMP_Text _scoreUI;
     [SerializeField] private TMP_Text _coinUI;
@@ -54,6 +55,7 @@ public class GameOverScreen : MonoBehaviour
     private void InteractableButton(bool flag)
     {
         _menuButton.interactable = flag;
+        //_rewardButton.interactable = flag;
     }
 
     private void GetStatistics()
@@ -66,6 +68,13 @@ public class GameOverScreen : MonoBehaviour
 
     private void OnMenuButtonClick()
     {
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+    }
+
+    public void RewardsCoin()
+    {
+        _coins = PlayerPrefs.GetInt("coin");
+        _coins += _coins;
+        PlayerPrefs.SetInt("coin",_coins);
     }
 }
