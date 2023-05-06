@@ -44,6 +44,11 @@ public class PauseScreen : MonoBehaviour
         _pauseGroup.alpha = 1;
         _pauseGroup.blocksRaycasts = true;
         InteractableButton(true);
+        if (_inputPhoneScreen == null)
+        {
+            return;
+        }
+        else
         _inputPhoneScreen.OffScreenInput();
     }
 

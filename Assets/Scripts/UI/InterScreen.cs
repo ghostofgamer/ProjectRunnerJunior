@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using Agava.YandexGames;
 using Agava.YandexGames.Samples;
+using System;
 
 public class InterScreen : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private Button _button1;
+    [SerializeField] private SettingsScreen _settings;
+
+    public event Action InterOpen;  
+    public event Action InterClose;  
+    public event Action<bool> InterClosedInter;  
 
     private IEnumerator Start()
     {
@@ -29,6 +35,10 @@ public class InterScreen : MonoBehaviour
 
     public void OnShowInterstitialButtonClick()
     {
-        InterstitialAd.Show();
+            InterstitialAd.Show(_settings.Off,_settings.Unmute);
     }
+
+    private void Mute() => InterOpen?.Invoke();
+    private void Unmute() => InterClose?.Invoke();
+    private void  Unmutes() => InterClosedInter?.Invoke(false);
 }

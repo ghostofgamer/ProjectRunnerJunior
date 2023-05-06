@@ -79,9 +79,6 @@ public class Shop : MonoBehaviour
         PlayerPrefs.SetInt("coin", 0);
         coinUI.text = coins.ToString();
 
-
-
-
         //coins = PlayerPrefs.GetInt("coins") + totalCoins;
         //totalCoins = 0;
         //PlayerPrefs.SetInt("coins", coins);
@@ -178,9 +175,9 @@ public class Shop : MonoBehaviour
 
     private void BuyWinterLevel()
     {
-        if (coins >= shopItemSO[0].BaseCost)
+        if (coins >= shopItemSO[2].BaseCost)
         {
-            coins = coins - shopItemSO[0].BaseCost;
+            coins = coins - shopItemSO[2].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -204,9 +201,9 @@ public class Shop : MonoBehaviour
 
     private void OnBuyBigMan()
     {
-        if (coins >= shopItemSO[3].BaseCost)
+        if (coins >= shopItemSO[4].BaseCost)
         {
-            coins = coins - shopItemSO[3].BaseCost;
+            coins = coins - shopItemSO[4].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -217,9 +214,9 @@ public class Shop : MonoBehaviour
 
     private void OnBuyNinja()
     {
-        if (coins >= shopItemSO[4].BaseCost)
+        if (coins >= shopItemSO[5].BaseCost)
         {
-            coins = coins - shopItemSO[4].BaseCost;
+            coins = coins - shopItemSO[5].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();

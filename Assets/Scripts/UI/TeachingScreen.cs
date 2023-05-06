@@ -9,6 +9,9 @@ public class TeachingScreen : MonoBehaviour
     [SerializeField] private CanvasGroup _teachingCanvasGroup;
     [SerializeField] private InputPhoneScreen _inputPhoneScreen;
 
+    private bool _stop;
+    public bool Stop => _stop;
+
     private void OnEnable()
     {
         _playButton.onClick.AddListener(OnPlayButtonClick);
@@ -27,6 +30,7 @@ public class TeachingScreen : MonoBehaviour
         _playButton.interactable = true;
         _teachingCanvasGroup.blocksRaycasts = true;
         _inputPhoneScreen.OffScreenInput();
+        _stop = true;
     }
 
     private void OnPlayButtonClick()
@@ -36,5 +40,6 @@ public class TeachingScreen : MonoBehaviour
         _playButton.interactable = false;
         _teachingCanvasGroup.blocksRaycasts = false;
         _inputPhoneScreen.OnScreenInput();
+        _stop = false;
     }
 }
