@@ -14,10 +14,6 @@ public class InterScreen : MonoBehaviour
     [SerializeField] private SettingsScreen _settings;
     [SerializeField] private AdButton _adButton;
 
-    public event Action InterOpen;
-    public event Action InterClose;
-    public event Action<bool> InterClosedInter;
-
     private IEnumerator Start()
     {
         yield return YandexGamesSdk.Initialize();
@@ -50,8 +46,4 @@ public class InterScreen : MonoBehaviour
         _adButton.Unmute();
         SceneManager.LoadScene(0);
     }
-
-    private void Mute() => InterOpen?.Invoke();
-    private void Unmute() => InterClose?.Invoke();
-    private void Unmutes() => InterClosedInter?.Invoke(false);
 }

@@ -17,7 +17,6 @@ public class SettingsScreen : MonoBehaviour
 
     private int _firstPlayInt;
     private CanvasGroup _settingsGroup;
-    private int _muteCheck;
 
     private void OnEnable()
     {
@@ -34,12 +33,6 @@ public class SettingsScreen : MonoBehaviour
     private void Start()
     {
         _firstPlayInt = PlayerPrefs.GetInt("firstPlay");
-        //_muteCheck = PlayerPrefs.GetInt("mute");
-
-        //if (_muteCheck > 0)
-        //{
-        //    _audioSource.mute = true;
-        //}
 
         if (_firstPlayInt == 0)
         {
@@ -76,12 +69,6 @@ public class SettingsScreen : MonoBehaviour
         _audioSource.volume = 0;
     }
 
-
-    //public void Unmute()
-    //{
-    //    _audioSource.mute = false;
-    //    PlayerPrefs.SetInt("mute", 1);
-    //}
     public void Unmute()
     {
         _audioSource.mute = false;
@@ -91,11 +78,6 @@ public class SettingsScreen : MonoBehaviour
     {
         _audioSource.mute = true;
         PlayerPrefs.SetInt("mute", 0);
-    }
-
-    public void Stop()
-    {
-        Time.timeScale = 0;
     }
 
     private void OnAcceptButtonClick()

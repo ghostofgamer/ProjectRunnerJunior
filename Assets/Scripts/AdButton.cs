@@ -20,18 +20,12 @@ public class AdButton : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
-    public void Click()
+    public void ClickRewardButton()
     {
         VideoAd.Show(Mute,Reward,Unmute);
     }
 
     public void Mute() => AdOpened?.Invoke();
     public void Unmute() => AdClosed?.Invoke();
-
     private void Reward() => _player.AddReward();
-
-    //private void Rewards()
-    //{
-    //    _gameOverScreen.RewardsCoin();
-    //}
 }

@@ -10,7 +10,6 @@ public class InputPhoneTest : MonoBehaviour
     [SerializeField] private Button _rightButton;
     [SerializeField] private Button _jumpButton;
     [SerializeField] private Mover _mover;
-    private Player _player;
 
     private void Awake()
     {

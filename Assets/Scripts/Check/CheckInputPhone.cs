@@ -5,10 +5,10 @@ using UnityEngine;
 public class CheckInputPhone : MonoBehaviour
 {
     [SerializeField] private InputPhoneTest _inputPhone;
-    private float _elapsedTime;
-    private float _timeEnable = 5f;
     [SerializeField] private CheckInputPhone _check;
+    [SerializeField] private GameObject _inputScreen;
 
+    private float _elapsedTime;
 
     private void Start()
     {
@@ -17,24 +17,29 @@ public class CheckInputPhone : MonoBehaviour
 
     private void Update()
     {
-        _elapsedTime += Time.deltaTime;
-
-        if (_elapsedTime >= 1)
+        if (_inputScreen.activeSelf != false)
         {
-            _inputPhone.enabled = true;
-            //_check.enabled = false;
+            _elapsedTime += Time.deltaTime;
+
+            if (_elapsedTime >= 1)
+            {
+                _inputPhone.enabled = true;
+            }
+            if (_elapsedTime >= 2)
+            {
+
+                _inputPhone.enabled = false;
+            }
+            if (_elapsedTime >= 3)
+            {
+
+                _inputPhone.enabled = true;
+                _check.enabled = false;
+            }
         }
-        if (_elapsedTime >= 2)
+        else
         {
-
-            _inputPhone.enabled = false;
+            return;
         }
-        if (_elapsedTime >= 3)
-        {
-
-            _inputPhone.enabled = true;
-            _check.enabled = false;
-        }
-
     }
 }

@@ -1613,6 +1613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputPhone: {fileID: 170015864}
   _check: {fileID: 170015863}
+  _inputScreen: {fileID: 0}
 --- !u!114 &170015864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9156,7 +9157,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1579093116}
         m_TargetAssemblyTypeName: AdButton, Assembly-CSharp
-        m_MethodName: Click
+        m_MethodName: ClickRewardButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10055,6 +10056,7 @@ MonoBehaviour:
   _leftButton: {fileID: 1440756794}
   _jumpButton: {fileID: 2085494251}
   _inputPhoneScreen: {fileID: 1697434923}
+  _input: {fileID: 0}
 --- !u!1 &1697616016
 GameObject:
   m_ObjectHideFlags: 0

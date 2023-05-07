@@ -23,13 +23,11 @@ public class GameOverScreen : MonoBehaviour
     private void OnEnable()
     {
         _player.Died += OnDied;
-        _menuButton.onClick.AddListener(OnMenuButtonClick);
     }
 
     private void OnDisable()
     {
         _player.Died += OnDied;
-        _menuButton.onClick.RemoveListener(OnMenuButtonClick);
     }
 
     private void Start()
@@ -55,7 +53,6 @@ public class GameOverScreen : MonoBehaviour
     private void InteractableButton(bool flag)
     {
         _menuButton.interactable = flag;
-        //_rewardButton.interactable = flag;
     }
 
     private void GetStatistics()
@@ -64,17 +61,5 @@ public class GameOverScreen : MonoBehaviour
         _coins = PlayerPrefs.GetInt("coin");
         _scoreUI.text = _scores.ToString();
         _coinUI.text = _coins.ToString();
-    }
-
-    private void OnMenuButtonClick()
-    {
-        //SceneManager.LoadScene(0);
-    }
-
-    public void RewardsCoin()
-    {
-        _coins = PlayerPrefs.GetInt("coin");
-        _coins += _coins;
-        PlayerPrefs.SetInt("coin",_coins);
     }
 }

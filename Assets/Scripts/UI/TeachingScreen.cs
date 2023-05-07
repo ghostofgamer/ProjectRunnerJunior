@@ -10,6 +10,7 @@ public class TeachingScreen : MonoBehaviour
     [SerializeField] private InputPhoneScreen _inputPhoneScreen;
 
     private bool _stop;
+
     public bool Stop => _stop;
 
     private void OnEnable()
@@ -19,7 +20,6 @@ public class TeachingScreen : MonoBehaviour
 
     private void OnDisable()
     {
-
         _playButton.onClick.RemoveListener(OnPlayButtonClick);
     }
 

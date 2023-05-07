@@ -10,6 +10,7 @@ public class InputPhoneScreen : MonoBehaviour
     [SerializeField] private Button _leftButton;
     [SerializeField] private Button _jumpButton;
     [SerializeField] private InputPhoneScreen _inputPhoneScreen;
+    [SerializeField] private GameObject _input;
 
     private CanvasGroup _canvasGroup;
 
@@ -32,18 +33,17 @@ public class InputPhoneScreen : MonoBehaviour
 
     public void OnScreenInput()
     {
-        _canvasGroup.blocksRaycasts = true;
-        _canvasGroup.alpha = 1f;
-        InteractableButton(true);
+        if (_input.activeSelf != false)
+        {
+            _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.alpha = 1f;
+            InteractableButton(true);
+        }
     }
 
     public void OffScreenInput()
     {
-        if (_inputPhoneScreen == null)
-        {
-            return;
-        }
-        else
+        if (_input.activeSelf != false)
         {
             _canvasGroup.blocksRaycasts = false;
             _canvasGroup.alpha = 0f;
