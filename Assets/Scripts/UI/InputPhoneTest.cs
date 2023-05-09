@@ -25,9 +25,16 @@ public class InputPhoneTest : MonoBehaviour
 
     private void OnEnable()
     {
-        _leftButton.onClick.AddListener(_mover.LeftInputPhone);
-        _rightButton.onClick.AddListener(_mover.RightInputPhone);
-        _jumpButton.onClick.AddListener(_mover.OnJump);
+        try
+        {
+            _leftButton.onClick.AddListener(_mover.LeftInputPhone);
+            _rightButton.onClick.AddListener(_mover.RightInputPhone);
+            _jumpButton.onClick.AddListener(_mover.OnJump);
+        }
+        catch
+        {
+            return;
+        }
     }
 
     private void OnDisable()
@@ -39,7 +46,7 @@ public class InputPhoneTest : MonoBehaviour
 
     private void Start()
     {
-        _mover = GameObject.FindGameObjectWithTag("Player").GetComponent<Mover>();
+        _mover = GameObject.FindObjectOfType<Player>().GetComponent<Mover>();
     }
 }
 

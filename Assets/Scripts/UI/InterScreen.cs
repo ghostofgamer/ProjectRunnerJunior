@@ -16,7 +16,12 @@ public class InterScreen : MonoBehaviour
 
     private IEnumerator Start()
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        yield break;
+#endif
+
         yield return YandexGamesSdk.Initialize();
+
     }
 
     private void OnEnable()
@@ -33,7 +38,9 @@ public class InterScreen : MonoBehaviour
 
     public void OnShowInterstitialButtonClick()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
         InterstitialAd.Show(OnOpen, OnClose);
+#endif
     }
 
     private void OnOpen()

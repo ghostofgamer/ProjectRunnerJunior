@@ -6,12 +6,18 @@ using UnityEngine.Events;
 public class Coin : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _effect;
+    [SerializeField] private CoinSound _coinSound;
 
-    private int _rotateSpeed=-1;
+    private int _rotateSpeed = -1;
+
+    private void Start()
+    {
+        _coinSound = FindObjectOfType<CoinSound>().GetComponent<CoinSound>();
+    }
 
     private void Update()
     {
-        transform.Rotate(0, _rotateSpeed, 0,Space.World);
+        transform.Rotate(0, _rotateSpeed, 0, Space.World);
     }
 
     public void CollectionCoin()
@@ -28,5 +34,6 @@ public class Coin : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
+        _coinSound.AudioCollect();
     }
 }

@@ -11,7 +11,6 @@ public class AdButton : MonoBehaviour
 
     public static event Action AdOpened;
     public static event Action AdClosed;
-    public static event Action AdReward;
 
     private Player _player;
 
@@ -22,7 +21,9 @@ public class AdButton : MonoBehaviour
 
     public void ClickRewardButton()
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
         VideoAd.Show(Mute,Reward,Unmute);
+#endif
     }
 
     public void Mute() => AdOpened?.Invoke();

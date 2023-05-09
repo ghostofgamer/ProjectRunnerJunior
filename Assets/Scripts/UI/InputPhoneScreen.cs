@@ -13,7 +13,7 @@ public class InputPhoneScreen : MonoBehaviour
     [SerializeField] private GameObject _input;
 
     private CanvasGroup _canvasGroup;
-
+     
     public void InteractableButton(bool flag)
     {
         _rightButton.interactable = flag;

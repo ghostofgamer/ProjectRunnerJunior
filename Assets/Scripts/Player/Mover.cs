@@ -53,7 +53,6 @@ public class Mover : MonoBehaviour
         if (_groundChecker._isGrounded && _velocity < 0)
         {
             _effect.SetActive(true);
-            //_effect.EffectOption(true);
             _velocity = 0;
             var targetPosition = new Vector3(transform.position.x, _groundChecker.SnapPoint.y + _yOffset, transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, _snapSpeed * Time.deltaTime);

@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
 
     private void Awake()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _player = FindObjectOfType<Player>().GetComponent<Player>();
     }
 
     private void OnEnable()
@@ -29,8 +29,6 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
         if (_isPlaying)
         {
             _elapsedTime += Time.deltaTime;

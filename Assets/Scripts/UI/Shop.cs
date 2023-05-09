@@ -33,6 +33,12 @@ public class Shop : MonoBehaviour
     private int _cowboyAcsess;
     private int _girlAcsess;
     private CanvasGroup _shopCanvas;
+    private int _indexWinter = 2;
+    private int _indexDesert = 1;
+    private int _indexBigman = 4;
+    private int _indexNinja = 5;
+    private int _indexCowboy = 6;
+    private int _indexGirl = 7;
 
     private void Awake()
     {
@@ -68,8 +74,6 @@ public class Shop : MonoBehaviour
 
     private void Start()
     {
-        //int cool = PlayerPrefs.GetInt("coin");
-        //coins = cool;
         int money = PlayerPrefs.GetInt("money");
         int totalCoins = PlayerPrefs.GetInt("coin");
         coins = PlayerPrefs.GetInt("moneys") + totalCoins;
@@ -78,14 +82,9 @@ public class Shop : MonoBehaviour
         PlayerPrefs.SetInt("money", 0);
         PlayerPrefs.SetInt("coin", 0);
         coinUI.text = coins.ToString();
-
-        //coins = PlayerPrefs.GetInt("coins") + totalCoins;
-        //totalCoins = 0;
-        //PlayerPrefs.SetInt("coins", coins);
         _shopCanvas = GetComponent<CanvasGroup>();
         _shopCanvas.alpha = 0;
         _shopCanvas.blocksRaycasts = false;
-        //coinUI.text = coins.ToString();
 
         for (int i = 0; i < shopItemSO.Length; i++)
         {
@@ -94,34 +93,40 @@ public class Shop : MonoBehaviour
 
         if (_desertAcsess != 0)
         {
-            myPurchaseBtns[1].enabled = false;
+            myPurchaseBtns[_indexDesert].enabled = false;
             BuyBlock(_buyDesertButton);
         }
+
         if (_winterAcsess != 0)
         {
-            myPurchaseBtns[0].enabled = false;
+            myPurchaseBtns[_indexWinter].enabled = false;
             BuyBlock(_buyWinterButton);
         }
+
         if (_bigManAcsess != 0)
         {
-            myPurchaseBtns[3].enabled = false;
+            myPurchaseBtns[_indexBigman].enabled = false;
             BuyBlock(_buyBigManButton);
         }
+
         if (_ninjaAcsess != 0)
         {
-            myPurchaseBtns[4].enabled = false;
+            myPurchaseBtns[_indexNinja].enabled = false;
             BuyBlock(_buyNinjaButton);
         }
+
         if (_cowboyAcsess != 0)
         {
-            myPurchaseBtns[6].enabled = false;
+            myPurchaseBtns[_indexCowboy].enabled = false;
             BuyBlock(_buyCowboyButton);
         }
+
         if (_girlAcsess != 0)
         {
-            myPurchaseBtns[7].enabled = false;
+            myPurchaseBtns[_indexGirl].enabled = false;
             BuyBlock(_buyGirlButton);
         }
+
         LoadPanels();
         CheckPurchaseable();
     }
@@ -175,9 +180,9 @@ public class Shop : MonoBehaviour
 
     private void BuyWinterLevel()
     {
-        if (coins >= shopItemSO[2].BaseCost)
+        if (coins >= shopItemSO[_indexWinter].BaseCost)
         {
-            coins = coins - shopItemSO[2].BaseCost;
+            coins = coins - shopItemSO[_indexWinter].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -188,9 +193,9 @@ public class Shop : MonoBehaviour
 
     private void BuyDesertLevel()
     {
-        if (coins >= shopItemSO[1].BaseCost)
+        if (coins >= shopItemSO[_indexDesert].BaseCost)
         {
-            coins = coins - shopItemSO[1].BaseCost;
+            coins = coins - shopItemSO[_indexDesert].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -201,9 +206,9 @@ public class Shop : MonoBehaviour
 
     private void OnBuyBigMan()
     {
-        if (coins >= shopItemSO[4].BaseCost)
+        if (coins >= shopItemSO[_indexBigman].BaseCost)
         {
-            coins = coins - shopItemSO[4].BaseCost;
+            coins = coins - shopItemSO[_indexBigman].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -214,9 +219,9 @@ public class Shop : MonoBehaviour
 
     private void OnBuyNinja()
     {
-        if (coins >= shopItemSO[5].BaseCost)
+        if (coins >= shopItemSO[_indexNinja].BaseCost)
         {
-            coins = coins - shopItemSO[5].BaseCost;
+            coins = coins - shopItemSO[_indexNinja].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -227,9 +232,9 @@ public class Shop : MonoBehaviour
 
     private void OnBuyCowboy()
     {
-        if (coins >= shopItemSO[6].BaseCost)
+        if (coins >= shopItemSO[_indexCowboy].BaseCost)
         {
-            coins = coins - shopItemSO[6].BaseCost;
+            coins = coins - shopItemSO[_indexCowboy].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();
@@ -240,9 +245,9 @@ public class Shop : MonoBehaviour
 
     private void OnBuyGirl()
     {
-        if (coins >= shopItemSO[7].BaseCost)
+        if (coins >= shopItemSO[_indexGirl].BaseCost)
         {
-            coins = coins - shopItemSO[7].BaseCost;
+            coins = coins - shopItemSO[_indexGirl].BaseCost;
             PlayerPrefs.SetInt("coins", coins);
             PlayerPrefs.SetInt("moneys", coins);
             coinUI.text = coins.ToString();

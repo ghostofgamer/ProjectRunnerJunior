@@ -5,9 +5,12 @@ using UnityEngine;
 public class CheckScore : MonoBehaviour
 {
     [SerializeField] private Score _score;
-    private float _elapsedTime;
-    private float _timeEnable = 5f;
     [SerializeField] private CheckScore _check;
+
+    private float _elapsedTime;
+    private float _firstSeconds = 1f;
+    private float _secondSeconds = 2f;
+    private float _thirdSeconds = 3f;
 
 
     private void Start()
@@ -19,20 +22,19 @@ public class CheckScore : MonoBehaviour
     {
         _elapsedTime += Time.deltaTime;
 
-        if (_elapsedTime >= 1)
+        if (_elapsedTime >= _firstSeconds)
         {
             _score.enabled = true;
         }
 
-        if (_elapsedTime >= 2)
+        if (_elapsedTime >= _secondSeconds)
         {
 
             _score.enabled = false;
         }
 
-        if (_elapsedTime >= 3)
+        if (_elapsedTime >= _thirdSeconds)
         {
-
             _score.enabled = true;
             _check.enabled = false;
         }

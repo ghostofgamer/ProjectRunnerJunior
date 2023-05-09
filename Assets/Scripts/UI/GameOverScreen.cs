@@ -22,7 +22,14 @@ public class GameOverScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.Died += OnDied;
+        try
+        {
+            _player.Died += OnDied;
+        }
+        catch
+        {
+            return;
+        }
     }
 
     private void OnDisable()
@@ -32,11 +39,13 @@ public class GameOverScreen : MonoBehaviour
 
     private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _player = FindObjectOfType<Player>().GetComponent<Player>();
+
         _gameOverGroup = GetComponent<CanvasGroup>();
         _gameOverGroup.alpha = 0;
         _gameOverGroup.blocksRaycasts = false;
         InteractableButton(false);
+
     }
 
     private void OnDied()

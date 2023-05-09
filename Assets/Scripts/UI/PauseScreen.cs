@@ -44,6 +44,7 @@ public class PauseScreen : MonoBehaviour
         _pauseGroup.alpha = 1;
         _pauseGroup.blocksRaycasts = true;
         InteractableButton(true);
+
         if (_inputPhoneScreen == null)
         {
             return;
@@ -63,7 +64,6 @@ public class PauseScreen : MonoBehaviour
 
     private void OnMenuButtonClick()
     {
-        SceneManager.LoadScene(0);
     }
 
     private void InteractableButton(bool flag)

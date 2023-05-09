@@ -15,7 +15,7 @@ public class GroundChecker : MonoBehaviour
         Debug.DrawRay(transform.position, -transform.up, Color.red, _distanceToCheck);
         Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, _distanceToCheck, _groundMask);
 
-        if (hit.collider!=null)
+        if (hit.collider != null)
         {
             _isGrounded = true;
             SnapPoint = hit.collider.ClosestPoint(transform.position);

@@ -12,10 +12,6 @@ public class TileGenerator : Pool
     private float _elapsedTime = 0;
     private int _numberTile = 5;
 
-    private void Awake()
-    {
-    }
-
     private void Start()
     {
         _playerTransform= GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -61,9 +57,9 @@ public class TileGenerator : Pool
             {
                 tile.transform.GetChild(i).gameObject.SetActive(true);
             }
+
             tile.transform.position = this.transform.forward * _zSpawn;
             tile.SetActive(true);
-
         }
         _zSpawn += _tileLength;
     }

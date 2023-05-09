@@ -19,7 +19,7 @@ public class Pool : MonoBehaviour
 
     public GameObject Get(string tag)
     {
-        var filter = _pooledItem.Where(p =>!p.activeInHierarchy && p.tag == tag);
+        var filter = _pooledItem.Where(p => !p.activeInHierarchy && p.tag == tag);
         var index = Random.Range(0, filter.Count());
         GameObject result = filter.ElementAt(index);
         return result;

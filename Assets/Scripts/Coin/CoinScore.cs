@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class CoinScore : MonoBehaviour
 {
-    [SerializeField] private Player _player;
     [SerializeField] private TMP_Text _coin;
-    [SerializeField] private CoinSound _coinSound;
 
-    private void Start()
-    {
-        
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
+    private Player _player;
 
     private void OnEnable()
     {
-        _player.CoinsScoreChanged += OnCoinChanged;
+        try
+        {
+            _player.CoinsScoreChanged += OnCoinChanged;
+        }
+        catch
+        {
+            return;
+        }
     }
 
     private void OnDisable()
@@ -25,9 +26,13 @@ public class CoinScore : MonoBehaviour
         _player.CoinsScoreChanged -= OnCoinChanged;
     }
 
+    private void Start()
+    {
+        _player = FindObjectOfType<Player>().GetComponent<Player>();
+    }
+
     private void OnCoinChanged(int score)
     {
         _coin.text = score.ToString();
-        _coinSound.AudioCollect();
     }
 }

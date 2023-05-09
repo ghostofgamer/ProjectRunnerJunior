@@ -4263,6 +4263,7 @@ MonoBehaviour:
   _leftButton: {fileID: 788006574}
   _jumpButton: {fileID: 1321097676}
   _inputPhoneScreen: {fileID: 0}
+  _input: {fileID: 0}
 --- !u!225 &502355561
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7505,7 +7506,6 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194231}
-  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7675,21 +7675,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7f456c955f6684e9b29d340ae9969e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _coin: {fileID: 5119113764026020012}
-  _coinSound: {fileID: 963194231}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12866,7 +12851,7 @@ MonoBehaviour:
   _pauseScreen: {fileID: 5119113764748305663}
   _teachingScreen: {fileID: 1530520759}
   _pauseFocusScreen: {fileID: 1173237612}
-  _gameOverScreen: {fileID: 0}
+  _gameOverScreen: {fileID: 3429274992843501192}
   _score: {fileID: 5119113764823496972}
 --- !u!1 &1475067886
 GameObject:
@@ -16235,6 +16220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputPhone: {fileID: 1820938807}
   _check: {fileID: 1820938806}
+  _inputScreen: {fileID: 0}
 --- !u!114 &1820938807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26680,7 +26666,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5119113764190256451}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

@@ -9,10 +9,12 @@ public class CheckInputPhone : MonoBehaviour
     [SerializeField] private GameObject _inputScreen;
 
     private float _elapsedTime;
+    private float _firstSeconds = 1f;
+    private float _thirdSeconds = 3f;
 
     private void Start()
     {
-        _inputPhone.enabled = false;
+        //_inputPhone.enabled = false;
     }
 
     private void Update()
@@ -21,18 +23,13 @@ public class CheckInputPhone : MonoBehaviour
         {
             _elapsedTime += Time.deltaTime;
 
-            if (_elapsedTime >= 1)
+            if (_elapsedTime >= _firstSeconds)
             {
-                _inputPhone.enabled = true;
-            }
-            if (_elapsedTime >= 2)
-            {
-
                 _inputPhone.enabled = false;
             }
-            if (_elapsedTime >= 3)
-            {
 
+            if (_elapsedTime >= _thirdSeconds)
+            {
                 _inputPhone.enabled = true;
                 _check.enabled = false;
             }

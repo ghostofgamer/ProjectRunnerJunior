@@ -8,7 +8,8 @@ public class CheckCoinScore : MonoBehaviour
     [SerializeField] private CheckCoinScore _check;
 
     private float _elapsedTime;
-    private float _timeEnable = 5f;
+    private float _firstSeconds = 1f;
+    private float _thirdSeconds = 3f;
 
     private void Start()
     {
@@ -19,21 +20,15 @@ public class CheckCoinScore : MonoBehaviour
     {
         _elapsedTime += Time.deltaTime;
 
-        if (_elapsedTime >= 1)
+        if (_elapsedTime >= _firstSeconds)
         {
-            _coinScore.enabled = true;
-        }
-        if (_elapsedTime >= 2)
-        {
-
             _coinScore.enabled = false;
         }
-        if (_elapsedTime >= 3)
-        {
 
+        if (_elapsedTime >= _thirdSeconds)
+        {
             _coinScore.enabled = true;
             _check.enabled = false;
         }
-
     }
 }
