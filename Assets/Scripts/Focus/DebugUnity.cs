@@ -17,13 +17,13 @@ public class DebugUnity : MonoBehaviour
     {
         if (isPaused)
         {
-            _settings.OffVolumeSound();
             StopPlay();
+            _settings.OffVolumeSound();
         }
         else
         {
-            _settings.OnVolumeSound();
             PlayGame();
+            _settings.OnVolumeSound();
         }
     }
 

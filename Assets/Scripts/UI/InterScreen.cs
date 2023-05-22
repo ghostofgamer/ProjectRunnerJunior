@@ -19,9 +19,7 @@ public class InterScreen : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
         yield break;
 #endif
-
         yield return YandexGamesSdk.Initialize();
-
     }
 
     private void OnEnable()
@@ -50,7 +48,8 @@ public class InterScreen : MonoBehaviour
 
     private void OnClose(bool obj)
     {
-        _adButton.Unmute();
+        //_adButton.Unmute();
+        _settings.Unmute();
         SceneManager.LoadScene(0);
     }
 }

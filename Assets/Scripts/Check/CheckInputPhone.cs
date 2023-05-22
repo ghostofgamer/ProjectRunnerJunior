@@ -12,11 +12,6 @@ public class CheckInputPhone : MonoBehaviour
     private float _firstSeconds = 1f;
     private float _thirdSeconds = 3f;
 
-    private void Start()
-    {
-        //_inputPhone.enabled = false;
-    }
-
     private void Update()
     {
         if (_inputScreen.activeSelf != false)

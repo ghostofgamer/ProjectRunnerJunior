@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TeachingScreen : MonoBehaviour
+public class TeachingPhoneScreen : MonoBehaviour
 {
     [SerializeField] private Button _playButton;
     [SerializeField] private CanvasGroup _teachingCanvasGroup;
     [SerializeField] private InputPhoneScreen _inputPhoneScreen;
+    [SerializeField] private TeachingScreen _teachingScreen;
 
     private bool _stop;
 
@@ -33,8 +34,9 @@ public class TeachingScreen : MonoBehaviour
         _stop = true;
     }
 
-    public void OnPlayButtonClick()
+    private void OnPlayButtonClick()
     {
+        _teachingScreen.OnPlayButtonClick();
         Time.timeScale = 1;
         _teachingCanvasGroup.alpha = 0;
         _playButton.interactable = false;

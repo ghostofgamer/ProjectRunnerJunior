@@ -16,17 +16,18 @@ public class SettingsScreen : MonoBehaviour
     [SerializeField] private Button _turceLanguage;
 
     private int _firstPlayInt;
+    private int _mutePlay;
     private CanvasGroup _settingsGroup;
 
     private void OnEnable()
     {
-        _offMusicButton.onClick.AddListener(OffVolumeSound);
+        _offMusicButton.onClick.AddListener(OffSound);
         _acceptButton.onClick.AddListener(OnAcceptButtonClick);
     }
 
     private void OnDisable()
     {
-        _offMusicButton.onClick.RemoveListener(OffVolumeSound);
+        _offMusicButton.onClick.RemoveListener(OffSound);
         _acceptButton.onClick.RemoveListener(OnAcceptButtonClick);
     }
 
@@ -36,7 +37,7 @@ public class SettingsScreen : MonoBehaviour
 
         if (_firstPlayInt == 0)
         {
-            _slider.value = 0.3f;
+            _slider.value = 0.15f;
             _audioSource.volume = _slider.value;
             PlayerPrefs.SetInt("firstPlay", 1);
         }
@@ -44,6 +45,13 @@ public class SettingsScreen : MonoBehaviour
         {
             _slider.value = PlayerPrefs.GetFloat("volume");
             _audioSource.volume = _slider.value;
+        }
+
+        _mutePlay = PlayerPrefs.GetInt("mute");
+
+        if(_mutePlay != 1)
+        {
+            _audioSource.mute = true;
         }
 
         _settingsGroup = GetComponent<CanvasGroup>();
@@ -54,24 +62,32 @@ public class SettingsScreen : MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        Unmute();
         _slider.value = volume;
         _audioSource.volume = _slider.value;
         PlayerPrefs.SetFloat("volume", volume);
     }
 
+    private void OffSound()
+    {
+        _slider.value = 0f;
+    }
+
     public void OnVolumeSound()
     {
+        _slider.value = PlayerPrefs.GetFloat("volume");
         _audioSource.volume = _slider.value;
     }
 
     public void OffVolumeSound()
     {
-        _audioSource.volume = 0;
+        _audioSource.volume = 0f;
     }
 
     public void Unmute()
     {
         _audioSource.mute = false;
+        PlayerPrefs.SetInt("mute", 1);
     }
 
     public void Mute()

@@ -10,16 +10,19 @@ public class InputPhoneTest : MonoBehaviour
     [SerializeField] private Button _rightButton;
     [SerializeField] private Button _jumpButton;
     [SerializeField] private Mover _mover;
+    [SerializeField] private TeachingPhoneScreen _teachingPhoneScreen;
 
     private void Awake()
     {
         if (Application.isMobilePlatform)
         {
             _inputPhone.SetActive(true);
+            _teachingPhoneScreen.gameObject.SetActive(true);
         }
         else
         {
             _inputPhone.SetActive(false);
+            _teachingPhoneScreen.gameObject.SetActive(false);
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class AdCheck : MonoBehaviour
 {
     [SerializeField] private SettingsScreen _settings;
+    [SerializeField] private GameOverScreen _gameOverScreen;
 
     private void OnEnable()
     {
@@ -26,5 +27,7 @@ public class AdCheck : MonoBehaviour
     private void OnAdClose()
     {
         _settings.Unmute();
+        _gameOverScreen.GetStatistics();
+        _gameOverScreen.RewardInteractable();
     }
 }

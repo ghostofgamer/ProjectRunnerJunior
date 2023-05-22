@@ -40,12 +40,10 @@ public class GameOverScreen : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>().GetComponent<Player>();
-
         _gameOverGroup = GetComponent<CanvasGroup>();
         _gameOverGroup.alpha = 0;
         _gameOverGroup.blocksRaycasts = false;
         InteractableButton(false);
-
     }
 
     private void OnDied()
@@ -62,13 +60,19 @@ public class GameOverScreen : MonoBehaviour
     private void InteractableButton(bool flag)
     {
         _menuButton.interactable = flag;
+        _rewardButton.interactable = flag;
     }
 
-    private void GetStatistics()
+    public void GetStatistics()
     {
         _scores = PlayerPrefs.GetInt("score");
         _coins = PlayerPrefs.GetInt("coin");
         _scoreUI.text = _scores.ToString();
         _coinUI.text = _coins.ToString();
+    }
+
+    public void RewardInteractable()
+    {
+        _rewardButton.interactable = false;
     }
 }
