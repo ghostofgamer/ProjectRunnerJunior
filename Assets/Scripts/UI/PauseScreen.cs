@@ -19,14 +19,12 @@ public class PauseScreen : MonoBehaviour
     {
         _pauseButton.onClick.AddListener(OnPauseButtonClick);
         _playButton.onClick.AddListener(OnPlayButtonClick);
-        _menuButton.onClick.AddListener(OnMenuButtonClick);
     }
 
     private void OnDisable()
     {
         _pauseButton.onClick.RemoveListener(OnPauseButtonClick);
         _playButton.onClick.RemoveListener(OnPlayButtonClick);
-        _menuButton.onClick.RemoveListener(OnMenuButtonClick);
     }
 
     private void Start()
@@ -60,10 +58,6 @@ public class PauseScreen : MonoBehaviour
         _pauseGroup.blocksRaycasts = false;
         _score.ChangePlaying(true);
         _inputPhoneScreen.OnScreenInput();
-    }
-
-    private void OnMenuButtonClick()
-    {
     }
 
     private void InteractableButton(bool flag)

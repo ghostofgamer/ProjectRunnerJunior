@@ -8,6 +8,7 @@ public class TeachingScreen : MonoBehaviour
     [SerializeField] private Button _playButton;
     [SerializeField] private CanvasGroup _teachingCanvasGroup;
     [SerializeField] private InputPhoneScreen _inputPhoneScreen;
+    [SerializeField] private Timer _timer;
 
     private bool _stop;
 
@@ -35,6 +36,7 @@ public class TeachingScreen : MonoBehaviour
 
     public void OnPlayButtonClick()
     {
+        _timer.StartToTimer();
         Time.timeScale = 1;
         _teachingCanvasGroup.alpha = 0;
         _playButton.interactable = false;
