@@ -11475,7 +11475,6 @@ GameObject:
   - component: {fileID: 6946900617692080463}
   - component: {fileID: 1902881036408423288}
   - component: {fileID: 1902881036408423280}
-  - component: {fileID: 6946900617692080460}
   - component: {fileID: 1902881036408423284}
   - component: {fileID: 1902881036408423294}
   - component: {fileID: 1902881036408423292}
@@ -11576,19 +11575,6 @@ CapsuleCollider:
   m_Height: 1.638736
   m_Direction: 1
   m_Center: {x: -0.0066650147, y: 1.0201384, z: 0}
---- !u!65 &6946900617692080460
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4450582508802140559}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.41, z: 0.65}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &1902881036408423284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11633,7 +11619,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4450582508802140559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 613289b24e2ad3f4b9078866346aeaef, type: 3}
   m_Name: 
@@ -11660,12 +11646,15 @@ MonoBehaviour:
   _speed: 10
   _animations: {fileID: 1902881036408423292}
   _jumpForce: 6
-  _groundChecker: {fileID: 1902881036408423293}
   _yOffset: 0.06
   _snapSpeed: 3
   _timeToUpSpeed: 10
   _changeSpeed: 0.1
   _effect: {fileID: 1902881037563670178}
+  _leftButton: {fileID: 0}
+  _rightButton: {fileID: 0}
+  _isJumping: 0
+  _comingDown: 0
 --- !u!114 &1902881036408423289
 MonoBehaviour:
   m_ObjectHideFlags: 0

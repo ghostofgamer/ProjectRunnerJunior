@@ -322,7 +322,6 @@ GameObject:
   - component: {fileID: 5827796034632356418}
   - component: {fileID: 3089540724119107701}
   - component: {fileID: 3089540724119107709}
-  - component: {fileID: 5827796034632356417}
   - component: {fileID: 3089540724119107705}
   - component: {fileID: 3089540724119107699}
   - component: {fileID: 3089540724119107697}
@@ -422,19 +421,6 @@ CapsuleCollider:
   m_Height: 1.638736
   m_Direction: 1
   m_Center: {x: -0.0066650147, y: 1.0201384, z: 0}
---- !u!65 &5827796034632356417
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958002169724572290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.41, z: 0.65}
-  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!114 &3089540724119107705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c4cafd6ea1b4a4db398ccede950285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
 --- !u!114 &3089540724119107699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +465,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958002169724572290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 613289b24e2ad3f4b9078866346aeaef, type: 3}
   m_Name: 
@@ -507,12 +492,15 @@ MonoBehaviour:
   _speed: 10
   _animations: {fileID: 3089540724119107697}
   _jumpForce: 6
-  _groundChecker: {fileID: 3089540724119107696}
   _yOffset: 0.06
   _snapSpeed: 3
   _timeToUpSpeed: 10
   _changeSpeed: 0.1
   _effect: {fileID: 3089540722991584687}
+  _leftButton: {fileID: 0}
+  _rightButton: {fileID: 0}
+  _isJumping: 0
+  _comingDown: 0
 --- !u!114 &3089540724119107700
 MonoBehaviour:
   m_ObjectHideFlags: 0

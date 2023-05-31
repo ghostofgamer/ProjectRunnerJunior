@@ -15,7 +15,7 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private MoveAnimations _animations;
     [SerializeField] private float _jumpForce;
-    [SerializeField] private GroundChecker _groundChecker;
+    //[SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _yOffset;
     [SerializeField] private float _snapSpeed;
     [SerializeField] private float _timeToUpSpeed;
@@ -23,6 +23,14 @@ public class Mover : MonoBehaviour
     [SerializeField] private GameObject _effect;
     [SerializeField] private Button _leftButton;
     [SerializeField] private Button _rightButton;
+
+
+
+    [SerializeField] private bool _isJumping = false;
+    [SerializeField] private bool _comingDown = false;
+
+
+
 
     private int _startLine;
     private int _nexLine;
@@ -47,15 +55,28 @@ public class Mover : MonoBehaviour
     {
         Move();
         _animations.Move(_inputDirection);
-        _velocity += _gravity * _gravityScale * Time.deltaTime;
-        _animations.Jumping(_groundChecker._isGrounded);
+        _effect.SetActive(true);
+        //_velocity += _gravity * _gravityScale * Time.deltaTime;
+        //_animations.Jumping(_groundChecker._isGrounded);
 
-        if (_groundChecker._isGrounded && _velocity < 0)
+        //if (_groundChecker._isGrounded && _velocity < 0)
+        //{
+        //    _effect.SetActive(true);
+        //    _velocity = 0;
+        //    var targetPosition = new Vector3(transform.position.x, _groundChecker.SnapPoint.y + _yOffset, transform.position.z);
+        //    transform.position = Vector3.MoveTowards(transform.position, targetPosition, _snapSpeed * Time.deltaTime);
+        //}
+
+        if (_isJumping == true)
         {
-            _effect.SetActive(true);
-            _velocity = 0;
-            var targetPosition = new Vector3(transform.position.x, _groundChecker.SnapPoint.y + _yOffset, transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, _snapSpeed * Time.deltaTime);
+            if (_comingDown == false)
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * 3.65f, Space.World);
+            }
+            if (_comingDown == true)
+            {
+                transform.Translate(Vector3.up * Time.deltaTime * -3.65f, Space.World);
+            }
         }
 
         if (_speedStrafe < _maxSpeedStrafe)
@@ -120,19 +141,36 @@ public class Mover : MonoBehaviour
 
     public void OnJump()
     {
-        if (_groundChecker._isGrounded)
+        //if (_groundChecker._isGrounded)
+        //{
+        //    _animations.SetJumpingsTrigger();
+        //    _velocity = _jumpForce;
+        //    _effect.SetActive(false);
+        //}
+        if (_isJumping == false)
         {
+            _isJumping = true;
             _animations.SetJumpingsTrigger();
-            _velocity = _jumpForce;
+            StartCoroutine(JumpSequence());
             _effect.SetActive(false);
         }
     }
 
     private void OnSlide()
     {
-        if (_groundChecker._isGrounded)
-        {
-            _animations.SetSlide();
-        }
+        //if (_groundChecker._isGrounded)
+        //{
+        //    _animations.SetSlide();
+        //}
+    }
+
+    IEnumerator JumpSequence()
+    {
+        yield return new WaitForSeconds(0.6f);
+        _comingDown = true;
+        yield return new WaitForSeconds(0.6f);
+        _isJumping = false;
+        _comingDown = false;
+        transform.position = new Vector3(transform.position.x, 0.45f, transform.position.z);
     }
 }
