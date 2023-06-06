@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public event UnityAction<int> ScoreChanged; 
     public event UnityAction<int> CoinsScoreChanged; 
     public event UnityAction Died;
-
+    
     public int Coin => _coin;
 
     private void Start()
